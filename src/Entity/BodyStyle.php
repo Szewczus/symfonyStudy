@@ -7,12 +7,12 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Colour
+ * BodyStyle
  *
- * @ORM\Table(name="colour")
+ * @ORM\Table(name="body_style")
  * @ORM\Entity
  */
-class Colour
+class BodyStyle
 {
     /**
      * @var int
@@ -24,19 +24,26 @@ class Colour
     private $id;
 
     /**
+     * @var int|null
+     *
+     * @ORM\Column(name="door_number", type="integer", nullable=true)
+     */
+    private $doorNumber;
+
+    /**
      * @var string|null
      *
-     * @ORM\Column(name="car_colour", type="string", length=255, nullable=true)
+     * @ORM\Column(name="style", type="string", length=255, nullable=true)
      */
-    private $carColour;
+    private $style;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="OwnedVehicle", inversedBy="colour")
-     * @ORM\JoinTable(name="colour_owned_vehicles",
+     * @ORM\ManyToMany(targetEntity="OwnedVehicle", inversedBy="bodyStyle")
+     * @ORM\JoinTable(name="body_style_owned_vehicles",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="colour_id", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="body_style_id", referencedColumnName="id")
      *   },
      *   inverseJoinColumns={
      *     @ORM\JoinColumn(name="owned_vehicles_id", referencedColumnName="id")
@@ -58,14 +65,26 @@ class Colour
         return $this->id;
     }
 
-    public function getCarColour(): ?string
+    public function getDoorNumber(): ?int
     {
-        return $this->carColour;
+        return $this->doorNumber;
     }
 
-    public function setCarColour(?string $carColour): self
+    public function setDoorNumber(?int $doorNumber): self
     {
-        $this->carColour = $carColour;
+        $this->doorNumber = $doorNumber;
+
+        return $this;
+    }
+
+    public function getStyle(): ?string
+    {
+        return $this->style;
+    }
+
+    public function setStyle(?string $style): self
+    {
+        $this->style = $style;
 
         return $this;
     }

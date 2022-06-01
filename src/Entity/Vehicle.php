@@ -7,12 +7,12 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Colour
+ * Vehicle
  *
- * @ORM\Table(name="colour")
+ * @ORM\Table(name="vehicle")
  * @ORM\Entity
  */
-class Colour
+class Vehicle
 {
     /**
      * @var int
@@ -26,17 +26,24 @@ class Colour
     /**
      * @var string|null
      *
-     * @ORM\Column(name="car_colour", type="string", length=255, nullable=true)
+     * @ORM\Column(name="brand", type="string", length=255, nullable=true)
      */
-    private $carColour;
+    private $brand;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="model", type="string", length=255, nullable=true)
+     */
+    private $model;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="OwnedVehicle", inversedBy="colour")
-     * @ORM\JoinTable(name="colour_owned_vehicles",
+     * @ORM\ManyToMany(targetEntity="OwnedVehicle", inversedBy="vehicle")
+     * @ORM\JoinTable(name="vehicle_owned_vehicles",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="colour_id", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="vehicle_id", referencedColumnName="id")
      *   },
      *   inverseJoinColumns={
      *     @ORM\JoinColumn(name="owned_vehicles_id", referencedColumnName="id")
@@ -58,14 +65,26 @@ class Colour
         return $this->id;
     }
 
-    public function getCarColour(): ?string
+    public function getBrand(): ?string
     {
-        return $this->carColour;
+        return $this->brand;
     }
 
-    public function setCarColour(?string $carColour): self
+    public function setBrand(?string $brand): self
     {
-        $this->carColour = $carColour;
+        $this->brand = $brand;
+
+        return $this;
+    }
+
+    public function getModel(): ?string
+    {
+        return $this->model;
+    }
+
+    public function setModel(?string $model): self
+    {
+        $this->model = $model;
 
         return $this;
     }

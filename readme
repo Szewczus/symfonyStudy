@@ -14,3 +14,5 @@ composer require symfony/orm-pack
 composer require --dev symfony/maker-bundle
 //stworzenie bazy przez: create database symfonystudy
 php bin/console make:entity
+
+odkomentowac pdo_mysql w php.ini
