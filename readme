@@ -9,3 +9,8 @@ scoop install symfony-cli
 composer create-project symfony/skeleton symfonyStudy
 
 E:\EWA_SZEWCZAK_CV\projekty\symfonyStudy> symfony server:start
+
+composer require symfony/orm-pack
+composer require --dev symfony/maker-bundle
+//stworzenie bazy przez: create database symfonystudy
+php bin/console make:entity
