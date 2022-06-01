@@ -22,16 +22,16 @@ class Insurance
     private $id;
 
     /**
-     * @var \DateTime|null
+     * @var string|null
      *
-     * @ORM\Column(name="expiration", type="datetime", nullable=true)
+     * @ORM\Column(name="expiration", type="string", nullable=true)
      */
     private $expiration;
 
     /**
-     * @var \DateTime|null
+     * @var string|null
      *
-     * @ORM\Column(name="start_date", type="datetime", nullable=true)
+     * @ORM\Column(name="start_date", type="string", length=255, nullable=true)
      */
     private $startDate;
 
@@ -60,24 +60,24 @@ class Insurance
         return $this->id;
     }
 
-    public function getExpiration(): ?\DateTimeInterface
+    public function getExpiration(): ?string
     {
         return $this->expiration;
     }
 
-    public function setExpiration(?\DateTimeInterface $expiration): self
+    public function setExpiration(?string $expiration): self
     {
         $this->expiration = $expiration;
 
         return $this;
     }
 
-    public function getStartDate(): ?\DateTimeInterface
+    public function getStartDate(): ?string
     {
         return $this->startDate;
     }
 
-    public function setStartDate(?\DateTimeInterface $startDate): self
+    public function setStartDate(?string $startDate): self
     {
         $this->startDate = $startDate;
 

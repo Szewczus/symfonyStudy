@@ -24,9 +24,9 @@ class OwnedVehicle
     private $id;
 
     /**
-     * @var \DateTime|null
+     * @var string|null
      *
-     * @ORM\Column(name="production_date", type="datetime", nullable=true)
+     * @ORM\Column(name="production_date", type="string", length=255, nullable=true)
      */
     private $productionDate;
 
@@ -114,12 +114,12 @@ class OwnedVehicle
         return $this->id;
     }
 
-    public function getProductionDate(): ?\DateTimeInterface
+    public function getProductionDate(): ?string
     {
         return $this->productionDate;
     }
 
-    public function setProductionDate(?\DateTimeInterface $productionDate): self
+    public function setProductionDate(?string $productionDate): self
     {
         $this->productionDate = $productionDate;
 

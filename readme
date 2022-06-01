@@ -23,3 +23,4 @@ odkomentowac pdo_mysql w php.ini
 composer require --dev symfony/test-pack
 
 php bin/phpunit
+composer require symfony/stopwatch
