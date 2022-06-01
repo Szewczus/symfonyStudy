@@ -1,0 +1,11 @@
+
+//instalacja soop:
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time (N)
+irm get.scoop.sh | iex
+
+//instalacja symfony
+scoop install symfony-cli
+
+composer create-project symfony/skeleton symfonyStudy
+
+E:\EWA_SZEWCZAK_CV\projekty\symfonyStudy> symfony server:start
