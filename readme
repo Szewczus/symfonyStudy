@@ -16,3 +16,6 @@ composer require --dev symfony/maker-bundle
 php bin/console make:entity
 
 odkomentowac pdo_mysql w php.ini
+ composer require symfony/serializer --ignore-platform-req=ext-http
+
+  composer require symfony/property-access

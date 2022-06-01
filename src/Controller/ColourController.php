@@ -13,7 +13,7 @@ class ColourController extends AbstractController
 {
 
     /**
-     * @Route("/colour/{id}", name="colour_show")
+     * @Route("/colour/{id}", name="colour_show", methods={"GET"})
      */
     public function show(ManagerRegistry $doctrine, int $id): Response
     {
