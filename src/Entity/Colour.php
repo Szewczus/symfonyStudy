@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Colour
  *
  * @ORM\Table(name="colour")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\ColourRepository")
  */
 class Colour
 {
@@ -19,7 +19,7 @@ class Colour
      *
      * @ORM\Column(name="id", type="bigint", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
@@ -58,6 +58,13 @@ class Colour
         return $this->id;
     }
 
+    public function setId(?int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
     public function getCarColour(): ?string
     {
         return $this->carColour;
@@ -93,5 +100,15 @@ class Colour
 
         return $this;
     }
+
+    /**
+     * @param Collection $ownedVehicles
+     */
+    public function setOwnedVehicles(ArrayCollection|Collection $ownedVehicles): void
+    {
+        $this->ownedVehicles = $ownedVehicles;
+    }
+
+
 
 }
