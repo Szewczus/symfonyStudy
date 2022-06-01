@@ -19,3 +19,7 @@ odkomentowac pdo_mysql w php.ini
  composer require symfony/serializer --ignore-platform-req=ext-http
 
   composer require symfony/property-access
+
+composer require --dev symfony/test-pack
+
+php bin/phpunit
